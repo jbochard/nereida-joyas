@@ -1,0 +1,96 @@
+# Base de datos de productos - Nereida Joyas
+# Simulación de e-commerce con datos YAML
+
+anillos:
+  - id: anillo-001
+    nombre: "Anillo Dragón Élfico"
+    slug: "anillo-dragon-elfico"
+    descripcion: "Anillo de plata 925 con diseño de dragón élfico. Pieza única de alta calidad artesanal."
+    precio: 8500
+    imagen: "/assets/images/productos/anillo-dragon.jpg"
+    categoria: "anillos"
+    stock: true
+    destacado: true
+    
+  - id: anillo-002
+    nombre: "Anillo Runas Nórdicas"
+    slug: "anillo-runas-nordicas"
+    descripcion: "Anillo de acero inoxidable con grabado de runas nórdicas. Diseño minimalista y elegante."
+    precio: 6200
+    imagen: "/assets/images/productos/anillo-runas.jpg"
+    categoria: "anillos"
+    stock: true
+    destacado: false
+    
+  - id: anillo-003
+    nombre: "Anillo Guerrero Espartano"
+    slug: "anillo-guerrero-espartano"
+    descripcion: "Anillo de bronce con diseño inspirado en la antigua Esparta. Resistente y con carácter."
+    precio: 7800
+    imagen: "/assets/images/productos/anillo-espartano.jpg"
+    categoria: "anillos"
+    stock: true
+    destacado: true
+
+cadenas:
+  - id: cadena-001
+    nombre: "Cadena Vikinga Torque"
+    slug: "cadena-vikinga-torque"
+    descripcion: "Cadena de plata 925 estilo torque vikingo. Diseño robusto y auténtico."
+    precio: 12500
+    imagen: "/assets/images/productos/cadena-vikinga.jpg"
+    categoria: "cadenas"
+    stock: true
+    destacado: true
+    
+  - id: cadena-002
+    nombre: "Cadena Celta Entrelazada"
+    slug: "cadena-celta-entrelazada"
+    descripcion: "Cadena de acero inoxidable con patrón celta entrelazado. Longitud ajustable."
+    precio: 9800
+    imagen: "/assets/images/productos/cadena-celta.jpg"
+    categoria: "cadenas"
+    stock: true
+    destacado: false
+    
+  - id: cadena-003
+    nombre: "Cadena Guerrero Nórdico"
+    slug: "cadena-guerrero-nordico"
+    descripcion: "Cadena gruesa de plata con detalles de martillo de Thor. Pieza única y poderosa."
+    precio: 15200
+    imagen: "/assets/images/productos/cadena-nordico.jpg"
+    categoria: "cadenas"
+    stock: true
+    destacado: true
+
+pulseras:
+  - id: pulsera-001
+    nombre: "Pulsera Runas de Poder"
+    slug: "pulsera-runas-poder"
+    descripcion: "Pulsera de cuero genuino con placa de plata grabada con runas. Ajustable."
+    precio: 4500
+    imagen: "/assets/images/productos/pulsera-runas.jpg"
+    categoria: "pulseras"
+    stock: true
+    destacado: true
+    
+  - id: pulsera-002
+    nombre: "Pulsera Guerrero Espartano"
+    slug: "pulsera-guerrero-espartano"
+    descripcion: "Pulsera de acero inoxidable con diseño de escudo espartano. Resistente al agua."
+    precio: 3800
+    imagen: "/assets/images/productos/pulsera-espartano.jpg"
+    categoria: "pulseras"
+    stock: true
+    destacado: false
+    
+  - id: pulsera-003
+    nombre: "Pulsera Dragón Élfico"
+    slug: "pulsera-dragon-elfico"
+    descripcion: "Pulsera de plata 925 con cabeza de dragón. Diseño artesanal y exclusivo."
+    precio: 7200
+    imagen: "/assets/images/productos/pulsera-dragon.jpg"
+    categoria: "pulseras"
+    stock: true
+    destacado: true
+

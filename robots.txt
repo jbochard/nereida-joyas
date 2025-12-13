@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nereidajoyas.uy/sitemap.xml
+

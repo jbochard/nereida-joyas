@@ -1,0 +1,63 @@
+# Configuración Jekyll para Nereida Joyas
+title: Nereida Joyas
+description: Joyería masculina exclusiva en Uruguay. Anillos, cadenas y pulseras de alta calidad con diseños únicos.
+url: https://nereidajoyas.uy
+baseurl: ""
+
+# Configuración SEO
+lang: es-UY
+locale: es_UY
+
+# Autor y datos del negocio
+author:
+  name: Nereida Joyas
+  email: contacto@nereidajoyas.uy
+
+# Plugins Jekyll (Jekyll 4.x usa 'plugins', Jekyll 3.x usa 'gems')
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Para compatibilidad con Jekyll 3.x (si es necesario)
+gems:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Configuración de SEO Tag
+logo: /assets/images/logo.png
+social:
+  name: Nereida Joyas
+  links:
+    - https://wa.me/598XXXXXXXXX
+
+# Excluir archivos del build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - .git
+  - .gitignore
+
+# Configuración de datos
+data_dir: _data
+
+# Configuración de colecciones (si se necesita en el futuro)
+collections:
+  productos:
+    output: true
+
+# Configuración de Sass
+sass:
+  style: compressed
+
+# Configuración de Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+

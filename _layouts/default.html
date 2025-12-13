@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'es-UY' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  {% seo %}
+  
+  <!-- Preconnect para mejorar performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "{{ site.data.empresa.nombre }}",
+    "description": "{{ site.data.empresa.descripcion }}",
+    "url": "{{ site.data.empresa.url }}",
+    "logo": "{{ site.data.empresa.logo }}",
+    "telephone": "{{ site.data.empresa.telefono }}",
+    "email": "{{ site.data.empresa.email }}",
+    "areaServed": {
+      "@type": "Country",
+      "name": "{{ site.data.empresa.area_servicio }}"
+    },
+    "openingHoursSpecification": [
+      {% for horario in site.data.empresa.horarios %}
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "{{ horario.dias }}",
+        "opens": "{{ horario.apertura }}",
+        "closes": "{{ horario.cierre }}"
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ],
+    "sameAs": [
+      {% for red in site.data.empresa.redes_sociales %}
+      "{{ red[1] }}"{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+  </script>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}">
+  
+  <!-- Canonical URL (manejado por jekyll-seo-tag, pero lo incluimos explícitamente) -->
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+</head>
+<body>
+  {% include header.html %}
+  
+  <main id="main-content">
+    {{ content }}
+  </main>
+  
+  {% include footer.html %}
+  
+  <!-- Carrito de compras -->
+  {% include carrito.html %}
+  
+  <!-- Scripts -->
+  <script src="{{ '/assets/js/carrito.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+</body>
+</html>
+

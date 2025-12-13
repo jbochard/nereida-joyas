@@ -1,0 +1,23 @@
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a href="{{ '/' | relative_url }}" aria-label="Nereida Joyas - Inicio">
+          <h1 class="site-title">{{ site.title }}</h1>
+        </a>
+      </div>
+      <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+        <ul>
+          <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="cart-toggle" id="cart-toggle" aria-label="Abrir carrito de compras">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+

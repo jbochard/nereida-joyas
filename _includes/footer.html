@@ -1,0 +1,35 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>{{ site.data.empresa.nombre }}</h3>
+        <p>{{ site.data.empresa.descripcion }}</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contacto</h3>
+        <p>
+          <a href="tel:{{ site.data.empresa.telefono }}">{{ site.data.empresa.telefono }}</a><br>
+          <a href="mailto:{{ site.data.empresa.email }}">{{ site.data.empresa.email }}</a>
+        </p>
+      </div>
+      <div class="footer-section">
+        <h3>Síguenos</h3>
+        <div class="social-links">
+          {% if site.data.empresa.redes_sociales.whatsapp %}
+          <a href="{{ site.data.empresa.redes_sociales.whatsapp }}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">WhatsApp</a>
+          {% endif %}
+          {% if site.data.empresa.redes_sociales.instagram %}
+          <a href="{{ site.data.empresa.redes_sociales.instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+          {% endif %}
+          {% if site.data.empresa.redes_sociales.facebook %}
+          <a href="{{ site.data.empresa.redes_sociales.facebook }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.data.empresa.nombre }}. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+

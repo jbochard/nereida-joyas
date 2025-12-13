@@ -1,0 +1,158 @@
+---
+layout: default
+title: Nereida Joyas - Joyería Masculina Exclusiva en Uruguay
+description: Descubre nuestra colección única de anillos, cadenas y pulseras de alta calidad. Diseños inspirados en culturas antiguas para el hombre moderno.
+---
+
+<section class="hero-banner">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">Nereida Joyas</h1>
+      <p class="hero-subtitle">Joyería Masculina Exclusiva</p>
+      <p class="hero-description">Diseños únicos inspirados en culturas antiguas. Calidad artesanal para el hombre moderno.</p>
+      <a href="#productos" class="btn-primary">Ver Colección</a>
+    </div>
+  </div>
+</section>
+
+<section id="productos" class="productos-section">
+  <div class="container">
+    <h2 class="section-title">Nuestra Colección</h2>
+    <p class="section-description">Explora nuestras piezas exclusivas de joyería masculina</p>
+    
+    <!-- Anillos -->
+    <div class="categoria-productos">
+      <h3 class="categoria-title">Anillos</h3>
+      <div class="productos-grid">
+        {% for producto in site.data.productos.anillos %}
+        <article class="producto-card" itemscope itemtype="https://schema.org/Product">
+          <div class="producto-imagen">
+            <img src="{{ producto.imagen | default: '/assets/images/placeholder.jpg' }}" 
+                 alt="{{ producto.nombre }}" 
+                 itemprop="image"
+                 loading="lazy"
+                 width="400"
+                 height="400">
+            {% if producto.destacado %}
+            <span class="badge-destacado">Destacado</span>
+            {% endif %}
+          </div>
+          <div class="producto-info">
+            <h4 class="producto-nombre" itemprop="name">{{ producto.nombre }}</h4>
+            <p class="producto-descripcion" itemprop="description">{{ producto.descripcion }}</p>
+            <div class="producto-precio">
+              <span class="precio" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="UYU">
+                <span itemprop="price" content="{{ producto.precio }}">${{ producto.precio | divided_by: 1000 }}.000</span>
+              </span>
+            </div>
+            <button class="btn-agregar-carrito" 
+                    data-producto-id="{{ producto.id }}"
+                    data-producto-nombre="{{ producto.nombre }}"
+                    data-producto-precio="{{ producto.precio }}"
+                    data-producto-imagen="{{ producto.imagen }}"
+                    aria-label="Agregar {{ producto.nombre }} al carrito">
+              Agregar al Carrito
+            </button>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <!-- Cadenas -->
+    <div class="categoria-productos">
+      <h3 class="categoria-title">Cadenas</h3>
+      <div class="productos-grid">
+        {% for producto in site.data.productos.cadenas %}
+        <article class="producto-card" itemscope itemtype="https://schema.org/Product">
+          <div class="producto-imagen">
+            <img src="{{ producto.imagen | default: '/assets/images/placeholder.jpg' }}" 
+                 alt="{{ producto.nombre }}" 
+                 itemprop="image"
+                 loading="lazy"
+                 width="400"
+                 height="400">
+            {% if producto.destacado %}
+            <span class="badge-destacado">Destacado</span>
+            {% endif %}
+          </div>
+          <div class="producto-info">
+            <h4 class="producto-nombre" itemprop="name">{{ producto.nombre }}</h4>
+            <p class="producto-descripcion" itemprop="description">{{ producto.descripcion }}</p>
+            <div class="producto-precio">
+              <span class="precio" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="UYU">
+                <span itemprop="price" content="{{ producto.precio }}">${{ producto.precio | divided_by: 1000 }}.000</span>
+              </span>
+            </div>
+            <button class="btn-agregar-carrito" 
+                    data-producto-id="{{ producto.id }}"
+                    data-producto-nombre="{{ producto.nombre }}"
+                    data-producto-precio="{{ producto.precio }}"
+                    data-producto-imagen="{{ producto.imagen }}"
+                    aria-label="Agregar {{ producto.nombre }} al carrito">
+              Agregar al Carrito
+            </button>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <!-- Pulseras -->
+    <div class="categoria-productos">
+      <h3 class="categoria-title">Pulseras</h3>
+      <div class="productos-grid">
+        {% for producto in site.data.productos.pulseras %}
+        <article class="producto-card" itemscope itemtype="https://schema.org/Product">
+          <div class="producto-imagen">
+            <img src="{{ producto.imagen | default: '/assets/images/placeholder.jpg' }}" 
+                 alt="{{ producto.nombre }}" 
+                 itemprop="image"
+                 loading="lazy"
+                 width="400"
+                 height="400">
+            {% if producto.destacado %}
+            <span class="badge-destacado">Destacado</span>
+            {% endif %}
+          </div>
+          <div class="producto-info">
+            <h4 class="producto-nombre" itemprop="name">{{ producto.nombre }}</h4>
+            <p class="producto-descripcion" itemprop="description">{{ producto.descripcion }}</p>
+            <div class="producto-precio">
+              <span class="precio" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="UYU">
+                <span itemprop="price" content="{{ producto.precio }}">${{ producto.precio | divided_by: 1000 }}.000</span>
+              </span>
+            </div>
+            <button class="btn-agregar-carrito" 
+                    data-producto-id="{{ producto.id }}"
+                    data-producto-nombre="{{ producto.nombre }}"
+                    data-producto-precio="{{ producto.precio }}"
+                    data-producto-imagen="{{ producto.imagen }}"
+                    aria-label="Agregar {{ producto.nombre }} al carrito">
+              Agregar al Carrito
+            </button>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contacto-section">
+  <div class="container">
+    <h2 class="section-title">Contacto</h2>
+    <p class="section-description">¿Tienes preguntas? Contáctanos por WhatsApp</p>
+    <a href="{{ site.data.empresa.redes_sociales.whatsapp }}" 
+       class="btn-whatsapp" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+      💬 Contactar por WhatsApp
+    </a>
+  </div>
+</section>
+
