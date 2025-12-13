@@ -1,4 +1,4 @@
-# Nereida Joyas - E-commerce de Joyería Masculina
+# Nereida Joyas - E-commerce de Joyería Femenina
 
 Sitio web estático optimizado para SEO, construido con Jekyll y desplegado en GitHub Pages.
 

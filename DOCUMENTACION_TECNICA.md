@@ -2,7 +2,7 @@
 
 ## Resumen Ejecutivo
 
-Este documento explica la arquitectura técnica del sitio web de Nereida Joyas, un e-commerce de joyería masculina en Uruguay, diseñado para maximizar el rendimiento SEO y simular un entorno real de ventas.
+Este documento explica la arquitectura técnica del sitio web de Nereida Joyas, un e-commerce de joyería femenina en Uruguay, diseñado para maximizar el rendimiento SEO y simular un entorno real de ventas.
 
 ## Componentes Tecnológicos
 
