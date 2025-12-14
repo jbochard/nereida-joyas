@@ -160,7 +160,10 @@ button {
 
 /* Hero Banner */
 .hero-banner {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #2a2a2a 100%);
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.7) 0%, rgba(42, 42, 42, 0.7) 100%), url('/assets/images/banner.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--color-bg);
   padding: var(--spacing-xl) 0;
   text-align: center;

@@ -2,36 +2,26 @@
 # Simulación de e-commerce con datos YAML
 
 anillos:
-  - id: anillo-001
-    nombre: "Anillo Dragón Élfico"
-    slug: "anillo-dragon-elfico"
-    descripcion: "Anillo de plata 925 con diseño de dragón élfico. Pieza única de alta calidad artesanal."
+  - id: anillo-itaca
+    nombre: "Anillo \"Ítaca\""
+    slug: "anillo-plata-itaca"
+    descripcion: "Una reinterpretación femenina y grácil de la arquitectura clásica. Este anillo de plata 925 presenta una banda delgada y sutilmente cóncava, que se siente ligera en el dedo. La prominente arista central del diseño anterior se ha refinado hasta convertirse en un filo hilo de plata pulida a espejo, que atrapa la luz como una línea brillante. Los laterales curvos ahora muestran un acabado satinado sedoso y muy fino, mucho más suave que el cepillado anterior. Es una pieza arquitectónica, pero con la delicadeza de una columna jónica."
     precio: 8500
-    imagen: "/assets/images/productos/anillo-dragon.jpg"
+    imagen: "/assets/images/products/itaca_macro.png"
     categoria: "anillos"
     stock: true
     destacado: true
     
-  - id: anillo-002
-    nombre: "Anillo Runas Nórdicas"
-    slug: "anillo-runas-nordicas"
-    descripcion: "Anillo de acero inoxidable con grabado de runas nórdicas. Diseño minimalista y elegante."
+  - id: anillo-cimodocea
+    nombre: "Anillo \"Cimodocea\""
+    slug: "anillo-plata-cimodocea"
+    descripcion: "Inspirado en Cimodocea, la nereida conocida por calmar las olas, este anillo es una interpretación arquitectónica de la fluidez acuática. Se trata de una pieza escultórica y maciza en plata 925, donde una banda ancha se retuerce en un movimiento orgánico pero controlado, como una ola detenida en el tiempo. La pieza juega con el contraste entre superficies pulidas a espejo que evocan el agua quieta, y profundidades en plata cepillada mate que sugieren la fuerza de las corrientes submarinas. Sobrio, pesado y sofisticado."
     precio: 6200
-    imagen: "/assets/images/productos/anillo-runas.jpg"
+    imagen: "/assets/images/products/cimodocea_macro.png"
     categoria: "anillos"
     stock: true
     destacado: false
-    
-  - id: anillo-003
-    nombre: "Anillo Guerrero Espartano"
-    slug: "anillo-guerrero-espartano"
-    descripcion: "Anillo de bronce con diseño inspirado en la antigua Esparta. Resistente y con carácter."
-    precio: 7800
-    imagen: "/assets/images/productos/anillo-espartano.jpg"
-    categoria: "anillos"
-    stock: true
-    destacado: true
-
+  
 cadenas:
   - id: cadena-001
     nombre: "Cadena Vikinga Torque"
