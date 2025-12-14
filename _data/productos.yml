@@ -7,7 +7,9 @@ anillos:
     slug: "anillo-plata-itaca"
     descripcion: "Una reinterpretación femenina y grácil de la arquitectura clásica. Este anillo de plata 925 presenta una banda delgada y sutilmente cóncava, que se siente ligera en el dedo. La prominente arista central del diseño anterior se ha refinado hasta convertirse en un filo hilo de plata pulida a espejo, que atrapa la luz como una línea brillante. Es una pieza arquitectónica, pero con la delicadeza de una columna jónica."
     precio: 5500
-    imagen: "/assets/images/products/itaca_macro.png"
+    imagenes:
+      - "/assets/images/products/anillo_itaca_macro.png"
+      - "/assets/images/products/anillo_itaca_modelo1.png"
     categoria: "anillos"
     stock: true
     destacado: true
@@ -17,11 +19,23 @@ anillos:
     slug: "anillo-plata-cimodocea"
     descripcion: "Inspirado en Cimodocea, la nereida conocida por calmar las olas, este anillo es una interpretación arquitectónica de la fluidez acuática. Se trata de una pieza escultórica y maciza en plata 925, donde una banda ancha se retuerce en un movimiento orgánico pero controlado, como una ola detenida en el tiempo. La pieza juega con el contraste entre superficies pulidas a espejo que evocan el agua quieta, y profundidades en plata cepillada mate que sugieren la fuerza de las corrientes submarinas."
     precio: 8500
-    imagen: "/assets/images/products/cimodocea_macro.png"
+    imagenes:
+      - "/assets/images/products/anillo_cimodocea_macro.png"
     categoria: "anillos"
     stock: true
     destacado: false
   
+  - id: anillo-dafne
+    nombre: "Anillo \"Dafne\""
+    slug: "anillo-plata-dafne"
+    descripcion: "Una evocación sutil del mito griego de la ninfa Dafne y su transformación en laurel. Este anillo abierto, forjado magistralmente en plata 925 sólida, envuelve el dedo con una arquitectura orgánica y ligera. La pieza destaca por su sofisticado juego de texturas: los tallos y nervaduras presentan un acabado pulido espejo que captura la luz, contrastando con la suavidad mate de las hojas en plata cepillada. Un diseño botánico atemporal que equilibra delicadeza y carácter escultórico."
+    precio: 7500
+    imagenes:
+      - "/assets/images/products/anillo_dafne_macro.png"
+    categoria: "anillos"
+    stock: true
+    destacado: true
+
 cadenas:
   - id: cadena-001
     nombre: "Cadena Vikinga Torque"

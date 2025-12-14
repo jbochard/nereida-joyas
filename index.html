@@ -26,19 +26,54 @@ description: Descubre nuestra colección única de anillos, cadenas y pulseras d
       <div class="productos-grid">
         {% for producto in site.data.productos.anillos %}
         <article class="producto-card" itemscope itemtype="https://schema.org/Product">
-          <div class="producto-imagen">
-            <img src="{{ producto.imagen | default: '/assets/images/placeholder.jpg' }}" 
-                 alt="{{ producto.nombre }}" 
-                 itemprop="image"
-                 loading="lazy"
-                 width="400"
-                 height="400">
-            {% if producto.destacado %}
-            <span class="badge-destacado">Destacado</span>
-            {% endif %}
+          <div class="producto-imagen-container">
+            <div class="producto-imagen" 
+                 data-producto-id="{{ producto.id }}"
+                 data-producto-nombre="{{ producto.nombre }}"
+                 data-imagenes='{% if producto.imagenes %}{{ producto.imagenes | jsonify }}{% else %}["{{ producto.imagen | default: "/assets/images/placeholder.jpg" }}"]{% endif %}'>
+              {% assign imagenes_producto = producto.imagenes | default: producto.imagen | default: '' %}
+              {% if producto.imagenes %}
+                <div class="producto-carrusel" data-producto-id="{{ producto.id }}">
+                  <div class="carrusel-container">
+                    {% for imagen in producto.imagenes %}
+                    <div class="carrusel-slide {% if forloop.first %}active{% endif %}">
+                      <img src="{{ imagen }}" 
+                           alt="{{ producto.nombre }} - Imagen {{ forloop.index }}" 
+                           itemprop="image"
+                           loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                           width="400"
+                           height="400">
+                    </div>
+                    {% endfor %}
+                  </div>
+                  {% if producto.imagenes.size > 1 %}
+                  <button class="carrusel-btn carrusel-prev" aria-label="Imagen anterior">‹</button>
+                  <button class="carrusel-btn carrusel-next" aria-label="Imagen siguiente">›</button>
+                  <div class="carrusel-indicators">
+                    {% for imagen in producto.imagenes %}
+                    <button class="carrusel-indicator {% if forloop.first %}active{% endif %}" 
+                            data-slide="{{ forloop.index0 }}" 
+                            aria-label="Ver imagen {{ forloop.index }}"></button>
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+              {% else %}
+                <img src="{{ producto.imagen | default: '/assets/images/placeholder.jpg' }}" 
+                     alt="{{ producto.nombre }}" 
+                     itemprop="image"
+                     loading="lazy"
+                     width="400"
+                     height="400">
+              {% endif %}
+              {% if producto.destacado %}
+              <span class="badge-destacado">Destacado</span>
+              {% endif %}
+            </div>
+            <div class="producto-nombre-container">
+              <h4 class="producto-nombre" itemprop="name">{{ producto.nombre }}</h4>
+            </div>
           </div>
           <div class="producto-info">
-            <h4 class="producto-nombre" itemprop="name">{{ producto.nombre }}</h4>
             <p class="producto-descripcion" itemprop="description">{{ producto.descripcion }}</p>
             <div class="producto-precio">
               <span class="precio" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
@@ -66,19 +101,53 @@ description: Descubre nuestra colección única de anillos, cadenas y pulseras d
       <div class="productos-grid">
         {% for producto in site.data.productos.cadenas %}
         <article class="producto-card" itemscope itemtype="https://schema.org/Product">
-          <div class="producto-imagen">
-            <img src="{{ producto.imagen | default: '/assets/images/placeholder.jpg' }}" 
-                 alt="{{ producto.nombre }}" 
-                 itemprop="image"
-                 loading="lazy"
-                 width="400"
-                 height="400">
-            {% if producto.destacado %}
-            <span class="badge-destacado">Destacado</span>
-            {% endif %}
+          <div class="producto-imagen-container">
+            <div class="producto-imagen" 
+                 data-producto-id="{{ producto.id }}"
+                 data-producto-nombre="{{ producto.nombre }}"
+                 data-imagenes='{% if producto.imagenes %}{{ producto.imagenes | jsonify }}{% else %}["{{ producto.imagen | default: "/assets/images/placeholder.jpg" }}"]{% endif %}'>
+              {% if producto.imagenes %}
+                <div class="producto-carrusel" data-producto-id="{{ producto.id }}">
+                  <div class="carrusel-container">
+                    {% for imagen in producto.imagenes %}
+                    <div class="carrusel-slide {% if forloop.first %}active{% endif %}">
+                      <img src="{{ imagen }}" 
+                           alt="{{ producto.nombre }} - Imagen {{ forloop.index }}" 
+                           itemprop="image"
+                           loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                           width="400"
+                           height="400">
+                    </div>
+                    {% endfor %}
+                  </div>
+                  {% if producto.imagenes.size > 1 %}
+                  <button class="carrusel-btn carrusel-prev" aria-label="Imagen anterior">‹</button>
+                  <button class="carrusel-btn carrusel-next" aria-label="Imagen siguiente">›</button>
+                  <div class="carrusel-indicators">
+                    {% for imagen in producto.imagenes %}
+                    <button class="carrusel-indicator {% if forloop.first %}active{% endif %}" 
+                            data-slide="{{ forloop.index0 }}" 
+                            aria-label="Ver imagen {{ forloop.index }}"></button>
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+              {% else %}
+                <img src="{{ producto.imagen | default: '/assets/images/placeholder.jpg' }}" 
+                     alt="{{ producto.nombre }}" 
+                     itemprop="image"
+                     loading="lazy"
+                     width="400"
+                     height="400">
+              {% endif %}
+              {% if producto.destacado %}
+              <span class="badge-destacado">Destacado</span>
+              {% endif %}
+            </div>
+            <div class="producto-nombre-container">
+              <h4 class="producto-nombre" itemprop="name">{{ producto.nombre }}</h4>
+            </div>
           </div>
           <div class="producto-info">
-            <h4 class="producto-nombre" itemprop="name">{{ producto.nombre }}</h4>
             <p class="producto-descripcion" itemprop="description">{{ producto.descripcion }}</p>
             <div class="producto-precio">
               <span class="precio" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
@@ -90,7 +159,7 @@ description: Descubre nuestra colección única de anillos, cadenas y pulseras d
                     data-producto-id="{{ producto.id }}"
                     data-producto-nombre="{{ producto.nombre }}"
                     data-producto-precio="{{ producto.precio }}"
-                    data-producto-imagen="{{ producto.imagen }}"
+                    data-producto-imagen="{% if producto.imagenes %}{{ producto.imagenes[0] }}{% else %}{{ producto.imagen | default: '/assets/images/placeholder.jpg' }}{% endif %}"
                     aria-label="Agregar {{ producto.nombre }} al carrito">
               Agregar al Carrito
             </button>
@@ -106,19 +175,53 @@ description: Descubre nuestra colección única de anillos, cadenas y pulseras d
       <div class="productos-grid">
         {% for producto in site.data.productos.pulseras %}
         <article class="producto-card" itemscope itemtype="https://schema.org/Product">
-          <div class="producto-imagen">
-            <img src="{{ producto.imagen | default: '/assets/images/placeholder.jpg' }}" 
-                 alt="{{ producto.nombre }}" 
-                 itemprop="image"
-                 loading="lazy"
-                 width="400"
-                 height="400">
-            {% if producto.destacado %}
-            <span class="badge-destacado">Destacado</span>
-            {% endif %}
+          <div class="producto-imagen-container">
+            <div class="producto-imagen" 
+                 data-producto-id="{{ producto.id }}"
+                 data-producto-nombre="{{ producto.nombre }}"
+                 data-imagenes='{% if producto.imagenes %}{{ producto.imagenes | jsonify }}{% else %}["{{ producto.imagen | default: "/assets/images/placeholder.jpg" }}"]{% endif %}'>
+              {% if producto.imagenes %}
+                <div class="producto-carrusel" data-producto-id="{{ producto.id }}">
+                  <div class="carrusel-container">
+                    {% for imagen in producto.imagenes %}
+                    <div class="carrusel-slide {% if forloop.first %}active{% endif %}">
+                      <img src="{{ imagen }}" 
+                           alt="{{ producto.nombre }} - Imagen {{ forloop.index }}" 
+                           itemprop="image"
+                           loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                           width="400"
+                           height="400">
+                    </div>
+                    {% endfor %}
+                  </div>
+                  {% if producto.imagenes.size > 1 %}
+                  <button class="carrusel-btn carrusel-prev" aria-label="Imagen anterior">‹</button>
+                  <button class="carrusel-btn carrusel-next" aria-label="Imagen siguiente">›</button>
+                  <div class="carrusel-indicators">
+                    {% for imagen in producto.imagenes %}
+                    <button class="carrusel-indicator {% if forloop.first %}active{% endif %}" 
+                            data-slide="{{ forloop.index0 }}" 
+                            aria-label="Ver imagen {{ forloop.index }}"></button>
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+              {% else %}
+                <img src="{{ producto.imagen | default: '/assets/images/placeholder.jpg' }}" 
+                     alt="{{ producto.nombre }}" 
+                     itemprop="image"
+                     loading="lazy"
+                     width="400"
+                     height="400">
+              {% endif %}
+              {% if producto.destacado %}
+              <span class="badge-destacado">Destacado</span>
+              {% endif %}
+            </div>
+            <div class="producto-nombre-container">
+              <h4 class="producto-nombre" itemprop="name">{{ producto.nombre }}</h4>
+            </div>
           </div>
           <div class="producto-info">
-            <h4 class="producto-nombre" itemprop="name">{{ producto.nombre }}</h4>
             <p class="producto-descripcion" itemprop="description">{{ producto.descripcion }}</p>
             <div class="producto-precio">
               <span class="precio" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
@@ -130,7 +233,7 @@ description: Descubre nuestra colección única de anillos, cadenas y pulseras d
                     data-producto-id="{{ producto.id }}"
                     data-producto-nombre="{{ producto.nombre }}"
                     data-producto-precio="{{ producto.precio }}"
-                    data-producto-imagen="{{ producto.imagen }}"
+                    data-producto-imagen="{% if producto.imagenes %}{{ producto.imagenes[0] }}{% else %}{{ producto.imagen | default: '/assets/images/placeholder.jpg' }}{% endif %}"
                     aria-label="Agregar {{ producto.nombre }} al carrito">
               Agregar al Carrito
             </button>
@@ -141,6 +244,25 @@ description: Descubre nuestra colección única de anillos, cadenas y pulseras d
     </div>
   </div>
 </section>
+
+<!-- Lightbox para visualización de imágenes -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <div class="lightbox-overlay"></div>
+  <div class="lightbox-content">
+    <button class="lightbox-close" aria-label="Cerrar visualizador">×</button>
+    <button class="lightbox-prev" aria-label="Imagen anterior">‹</button>
+    <button class="lightbox-next" aria-label="Imagen siguiente">›</button>
+    <div class="lightbox-image-container">
+      <img id="lightbox-image" src="" alt="" />
+    </div>
+    <div class="lightbox-info">
+      <h3 id="lightbox-title"></h3>
+      <div class="lightbox-counter">
+        <span id="lightbox-current">1</span> / <span id="lightbox-total">1</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <section id="contacto" class="contacto-section">
   <div class="container">
