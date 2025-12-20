@@ -1,5 +1,46 @@
+# Bloquear bots de IA que solo consumen contenido para entrenar modelos
+# Estas reglas específicas tienen prioridad sobre las reglas generales
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+# Permitir explícitamente bots de búsqueda legítimos
+# (Aunque ya están permitidos por la regla general, esto es más explícito)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Regla general: permitir todos los demás bots
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://nereidajoyas.uy/sitemap.xml
-
