@@ -32,6 +32,9 @@ social:
   links:
     - https://wa.me/598XXXXXXXXX
 
+# Google Search Console - Código de verificación
+google_site_verification: NnnGVMkjl0pMzYVNhTgqXRNLJNJklM7ZMDSDG-uFAjg
+
 # Excluir archivos del build
 exclude:
   - Gemfile
