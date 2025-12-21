@@ -7,11 +7,13 @@ anillos:
     slug: "anillo-plata-itaca"
     descripcion: "Una reinterpretación femenina y grácil de la arquitectura clásica. Este anillo de plata 925 presenta una banda delgada y sutilmente cóncava, que se siente ligera en el dedo. La prominente arista central del diseño anterior se ha refinado hasta convertirse en un filo hilo de plata pulida a espejo, que atrapa la luz como una línea brillante. Es una pieza arquitectónica, pero con la delicadeza de una columna jónica."
     precio: 5500
+    priceValidUntil: "2025-12-31"
     imagenes:
       - "/assets/images/products/anillo_itaca_macro.png"
       - "/assets/images/products/anillo_itaca_modelo1.png"
     categoria: "anillos"
     stock: true
+    availability: "InStock"
     destacado: true
     
   - id: anillo-cimodocea
@@ -19,10 +21,12 @@ anillos:
     slug: "anillo-plata-cimodocea"
     descripcion: "Inspirado en Cimodocea, la nereida conocida por calmar las olas, este anillo es una interpretación arquitectónica de la fluidez acuática. Se trata de una pieza escultórica y maciza en plata 925, donde una banda ancha se retuerce en un movimiento orgánico pero controlado, como una ola detenida en el tiempo. La pieza juega con el contraste entre superficies pulidas a espejo que evocan el agua quieta, y profundidades en plata cepillada mate que sugieren la fuerza de las corrientes submarinas."
     precio: 8500
+    priceValidUntil: "2025-12-31"
     imagenes:
       - "/assets/images/products/anillo_cimodocea_macro.png"
     categoria: "anillos"
     stock: true
+    availability: "InStock"
     destacado: false
   
   - id: anillo-dafne
@@ -30,71 +34,19 @@ anillos:
     slug: "anillo-plata-dafne"
     descripcion: "Una evocación sutil del mito griego de la ninfa Dafne y su transformación en laurel. Este anillo abierto, forjado magistralmente en plata 925 sólida, envuelve el dedo con una arquitectura orgánica y ligera. La pieza destaca por su sofisticado juego de texturas: los tallos y nervaduras presentan un acabado pulido espejo que captura la luz, contrastando con la suavidad mate de las hojas en plata cepillada. Un diseño botánico atemporal que equilibra delicadeza y carácter escultórico."
     precio: 7500
+    priceValidUntil: "2025-12-31"
     imagenes:
       - "/assets/images/products/anillo_dafne_macro.png"
     categoria: "anillos"
     stock: true
+    availability: "InStock"
     destacado: true
-
-cadenas:
-  - id: cadena-001
-    nombre: "Cadena Vikinga Torque"
-    slug: "cadena-vikinga-torque"
-    descripcion: "Cadena de plata 925 estilo torque vikingo. Diseño robusto y auténtico."
-    precio: 12500
-    imagen: "/assets/images/productos/cadena-vikinga.jpg"
-    categoria: "cadenas"
-    stock: true
-    destacado: true
-    
-  - id: cadena-002
-    nombre: "Cadena Celta Entrelazada"
-    slug: "cadena-celta-entrelazada"
-    descripcion: "Cadena de acero inoxidable con patrón celta entrelazado. Longitud ajustable."
-    precio: 9800
-    imagen: "/assets/images/productos/cadena-celta.jpg"
-    categoria: "cadenas"
-    stock: true
-    destacado: false
-    
-  - id: cadena-003
-    nombre: "Cadena Guerrero Nórdico"
-    slug: "cadena-guerrero-nordico"
-    descripcion: "Cadena gruesa de plata con detalles de martillo de Thor. Pieza única y poderosa."
-    precio: 15200
-    imagen: "/assets/images/productos/cadena-nordico.jpg"
-    categoria: "cadenas"
-    stock: true
-    destacado: true
-
-pulseras:
-  - id: pulsera-001
-    nombre: "Pulsera Runas de Poder"
-    slug: "pulsera-runas-poder"
-    descripcion: "Pulsera de cuero genuino con placa de plata grabada con runas. Ajustable."
-    precio: 4500
-    imagen: "/assets/images/productos/pulsera-runas.jpg"
-    categoria: "pulseras"
-    stock: true
-    destacado: true
-    
-  - id: pulsera-002
-    nombre: "Pulsera Guerrero Espartano"
-    slug: "pulsera-guerrero-espartano"
-    descripcion: "Pulsera de acero inoxidable con diseño de escudo espartano. Resistente al agua."
-    precio: 3800
-    imagen: "/assets/images/productos/pulsera-espartano.jpg"
-    categoria: "pulseras"
-    stock: true
-    destacado: false
-    
-  - id: pulsera-003
-    nombre: "Pulsera Dragón Élfico"
-    slug: "pulsera-dragon-elfico"
-    descripcion: "Pulsera de plata 925 con cabeza de dragón. Diseño artesanal y exclusivo."
-    precio: 7200
-    imagen: "/assets/images/productos/pulsera-dragon.jpg"
-    categoria: "pulseras"
-    stock: true
-    destacado: true
+    aggregateRating:
+      ratingValue: 5.0
+      reviewCount: 1
+    reviews:
+      - author: "Isabel Morales"
+        datePublished: "2025-11-05"
+        reviewBody: "Hermoso diseño, muy bien hecho. La atención al detalle es impresionante."
+        reviewRating: 5
 

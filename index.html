@@ -78,19 +78,61 @@ description: Descubre nuestra colección única de anillos, cadenas y pulseras d
             <div class="producto-precio">
               <span class="precio" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                 <meta itemprop="priceCurrency" content="UYU">
-                <span itemprop="price" content="{{ producto.precio }}">${{ producto.precio | divided_by: 1000 }}.000</span>
+                <meta itemprop="price" content="{{ producto.precio }}">
+                {% if producto.priceValidUntil %}<meta itemprop="priceValidUntil" content="{{ producto.priceValidUntil }}">{% endif %}
+                <meta itemprop="availability" content="https://schema.org/{% if producto.availability %}{{ producto.availability }}{% elsif producto.stock %}InStock{% else %}OutOfStock{% endif %}">
+                <span>${{ producto.precio | divided_by: 1000 }}.000</span>
               </span>
             </div>
             <button class="btn-agregar-carrito" 
                     data-producto-id="{{ producto.id }}"
                     data-producto-nombre="{{ producto.nombre }}"
                     data-producto-precio="{{ producto.precio }}"
-                    data-producto-imagen="{{ producto.imagen }}"
+                    data-producto-imagen="{% if producto.imagenes %}{{ producto.imagenes[0] }}{% else %}{{ producto.imagen | default: '/assets/images/placeholder.jpg' }}{% endif %}"
                     aria-label="Agregar {{ producto.nombre }} al carrito">
               Agregar al Carrito
             </button>
           </div>
         </article>
+        <!-- JSON-LD Schema para {{ producto.nombre }} -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": {{ producto.nombre | jsonify }},
+          "description": {{ producto.descripcion | jsonify }},
+          "image": {% if producto.imagenes %}{{ producto.imagenes | jsonify }}{% else %}[{{ producto.imagen | default: '/assets/images/placeholder.jpg' | jsonify }}]{% endif %},
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "UYU",
+            "price": "{{ producto.precio }}",
+            {% if producto.priceValidUntil %}"priceValidUntil": "{{ producto.priceValidUntil }}",{% endif %}
+            "availability": "https://schema.org/{% if producto.availability %}{{ producto.availability }}{% elsif producto.stock %}InStock{% else %}OutOfStock{% endif %}"
+          }{% if producto.aggregateRating or producto.reviews %},{% endif %}
+          {% if producto.aggregateRating %}"aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "{{ producto.aggregateRating.ratingValue }}",
+            "reviewCount": "{{ producto.aggregateRating.reviewCount }}"
+          }{% if producto.aggregateRating and producto.reviews %},{% endif %}{% endif %}
+          {% if producto.reviews %}"review": [
+            {% for review in producto.reviews %}
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": {{ review.author | jsonify }}
+              },
+              "datePublished": "{{ review.datePublished }}",
+              "reviewBody": {{ review.reviewBody | jsonify }},
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "{{ review.reviewRating }}"
+              }
+            }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          ]{% endif %}
+        }
+        </script>
         {% endfor %}
       </div>
     </div>
@@ -152,7 +194,10 @@ description: Descubre nuestra colección única de anillos, cadenas y pulseras d
             <div class="producto-precio">
               <span class="precio" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                 <meta itemprop="priceCurrency" content="UYU">
-                <span itemprop="price" content="{{ producto.precio }}">${{ producto.precio | divided_by: 1000 }}.000</span>
+                <meta itemprop="price" content="{{ producto.precio }}">
+                {% if producto.priceValidUntil %}<meta itemprop="priceValidUntil" content="{{ producto.priceValidUntil }}">{% endif %}
+                <meta itemprop="availability" content="https://schema.org/{% if producto.availability %}{{ producto.availability }}{% elsif producto.stock %}InStock{% else %}OutOfStock{% endif %}">
+                <span>${{ producto.precio | divided_by: 1000 }}.000</span>
               </span>
             </div>
             <button class="btn-agregar-carrito" 
@@ -165,6 +210,45 @@ description: Descubre nuestra colección única de anillos, cadenas y pulseras d
             </button>
           </div>
         </article>
+        <!-- JSON-LD Schema para {{ producto.nombre }} -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": {{ producto.nombre | jsonify }},
+          "description": {{ producto.descripcion | jsonify }},
+          "image": {% if producto.imagenes %}{{ producto.imagenes | jsonify }}{% else %}[{{ producto.imagen | default: '/assets/images/placeholder.jpg' | jsonify }}]{% endif %},
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "UYU",
+            "price": "{{ producto.precio }}",
+            {% if producto.priceValidUntil %}"priceValidUntil": "{{ producto.priceValidUntil }}",{% endif %}
+            "availability": "https://schema.org/{% if producto.availability %}{{ producto.availability }}{% elsif producto.stock %}InStock{% else %}OutOfStock{% endif %}"
+          }{% if producto.aggregateRating or producto.reviews %},{% endif %}
+          {% if producto.aggregateRating %}"aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "{{ producto.aggregateRating.ratingValue }}",
+            "reviewCount": "{{ producto.aggregateRating.reviewCount }}"
+          }{% if producto.aggregateRating and producto.reviews %},{% endif %}{% endif %}
+          {% if producto.reviews %}"review": [
+            {% for review in producto.reviews %}
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": {{ review.author | jsonify }}
+              },
+              "datePublished": "{{ review.datePublished }}",
+              "reviewBody": {{ review.reviewBody | jsonify }},
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "{{ review.reviewRating }}"
+              }
+            }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          ]{% endif %}
+        }
+        </script>
         {% endfor %}
       </div>
     </div>
@@ -226,7 +310,10 @@ description: Descubre nuestra colección única de anillos, cadenas y pulseras d
             <div class="producto-precio">
               <span class="precio" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                 <meta itemprop="priceCurrency" content="UYU">
-                <span itemprop="price" content="{{ producto.precio }}">${{ producto.precio | divided_by: 1000 }}.000</span>
+                <meta itemprop="price" content="{{ producto.precio }}">
+                {% if producto.priceValidUntil %}<meta itemprop="priceValidUntil" content="{{ producto.priceValidUntil }}">{% endif %}
+                <meta itemprop="availability" content="https://schema.org/{% if producto.availability %}{{ producto.availability }}{% elsif producto.stock %}InStock{% else %}OutOfStock{% endif %}">
+                <span>${{ producto.precio | divided_by: 1000 }}.000</span>
               </span>
             </div>
             <button class="btn-agregar-carrito" 
@@ -239,6 +326,45 @@ description: Descubre nuestra colección única de anillos, cadenas y pulseras d
             </button>
           </div>
         </article>
+        <!-- JSON-LD Schema para {{ producto.nombre }} -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": {{ producto.nombre | jsonify }},
+          "description": {{ producto.descripcion | jsonify }},
+          "image": {% if producto.imagenes %}{{ producto.imagenes | jsonify }}{% else %}[{{ producto.imagen | default: '/assets/images/placeholder.jpg' | jsonify }}]{% endif %},
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "UYU",
+            "price": "{{ producto.precio }}",
+            {% if producto.priceValidUntil %}"priceValidUntil": "{{ producto.priceValidUntil }}",{% endif %}
+            "availability": "https://schema.org/{% if producto.availability %}{{ producto.availability }}{% elsif producto.stock %}InStock{% else %}OutOfStock{% endif %}"
+          }{% if producto.aggregateRating or producto.reviews %},{% endif %}
+          {% if producto.aggregateRating %}"aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "{{ producto.aggregateRating.ratingValue }}",
+            "reviewCount": "{{ producto.aggregateRating.reviewCount }}"
+          }{% if producto.aggregateRating and producto.reviews %},{% endif %}{% endif %}
+          {% if producto.reviews %}"review": [
+            {% for review in producto.reviews %}
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": {{ review.author | jsonify }}
+              },
+              "datePublished": "{{ review.datePublished }}",
+              "reviewBody": {{ review.reviewBody | jsonify }},
+              "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "{{ review.reviewRating }}"
+              }
+            }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          ]{% endif %}
+        }
+        </script>
         {% endfor %}
       </div>
     </div>
